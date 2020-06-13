@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch , Route } from 'react-router-dom';
 
-function App() {
+// /////////////////////////////
+import Nav from './layout/nav.component';
+
+const App =() => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav/>
+        <Switch>
+          <Route exact path='/' component={Home}></Route>
+          <Route exact path='/Sefaresh' component={Sefaresh}></Route>
+          <Route exact path='/Checkout' component={Checkout}></Route>
+          <Route exact path='/Login' component={Login}></Route>
+          <Route exact path='/Contact' component={Contact}></Route>
+        </Switch>
     </div>
   );
 }
 
+const Home =()=>(
+  <div>صفحه اصلی</div>
+);
+
+const Sefaresh =()=>(
+  <div>صفحه سفارش</div>
+);
+
+const Contact =()=>(
+  <div>صفحه تماس با ما</div>
+);
+
+const Checkout =()=>(
+  <div>صفحه تسویه حساب</div>
+);
+
+const Login =()=>(
+  <div>صفحه ورود</div>
+);
 export default App;

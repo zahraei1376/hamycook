@@ -1,0 +1,27 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // background-image: linear-gradient(to bottom right , #ecf0f1 ,#bdc3c7);
+    // background-color: rgb(243, 215, 215);
+    border-bottom: 2px solid #f39c12;
+    &__logo{
+        // position: absolute;
+        // top: 3rem;
+        // left: 3rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        margin-right: auto;
+    }
+
+    &__options{
+        display: flex;
+    }
+
+    &__option{
+        padding:1rem 3rem;
+        display: inline-block;
+        color: rgb(177, 89, 169);
+        text-decoration: none;
+    }
+}
