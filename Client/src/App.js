@@ -3,25 +3,24 @@ import { Switch , Route } from 'react-router-dom';
 
 // /////////////////////////////
 import Nav from './layout/nav.component';
+import Footer from './layout/footer.component';
+import MainPage from './pages/mainPage.component';
 
 const App =() => {
   return (
     <div>
       <Nav/>
         <Switch>
-          <Route exact path='/' component={Home}></Route>
+          <Route exact path='/' component={MainPage}></Route>
           <Route exact path='/Sefaresh' component={Sefaresh}></Route>
           <Route exact path='/Checkout' component={Checkout}></Route>
           <Route exact path='/Login' component={Login}></Route>
           <Route exact path='/Contact' component={Contact}></Route>
         </Switch>
+        <Footer/>
     </div>
   );
 }
-
-const Home =()=>(
-  <div>صفحه اصلی</div>
-);
 
 const Sefaresh =()=>(
   <div>صفحه سفارش</div>

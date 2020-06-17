@@ -1,0 +1,47 @@
+@import '../abstract/variable';
+@import '../base/animations';
+
+.feauture{
+    display: flex;
+    text-align: center;
+    margin-top: 5rem;
+
+    &__img{
+        text-align: right;
+        width: 14rem;
+        height: 14rem;
+        margin-left: auto;
+        outline: none;
+        box-shadow:0 1rem 1.5rem 0 rgba($color: #000000, $alpha: .5);
+        backface-visibility: hidden;
+        transition: all .2s;
+        animation-name: moveInRight;
+        animation-duration: 4s;
+
+        @media only screen and (max-width: 37.5em) {
+            width: 8rem;
+            height: 8rem;
+            margin:6rem 0 0 3rem;
+         }; 
+
+        &:hover{
+            outline: 4px solid $color-primary-dark;
+            outline-offset: 1.5rem;
+            transform: scale(1.1);
+        }
+    }
+
+    &__text{
+        // margin-top: 5rem;
+        animation-name: moveInLeft;
+        animation-duration: 4s;
+
+        &-heading{
+            color: $color-grey-dark-2;
+        }
+    
+        &-explain{
+            color: $color-grey-dark;
+        }
+    }
+}

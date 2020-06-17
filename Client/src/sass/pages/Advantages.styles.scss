@@ -1,0 +1,21 @@
+@import '../abstract/variable';
+@import '../abstract/mixin';
+
+.advantages{
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    &__heading{
+        text-align: center;
+        margin-top: 12rem;
+        margin-bottom: 10rem;
+        line-height: 5rem;
+        @include effect;
+        // color: $color-primary-dark;
+        transition: all .2s;
+        &:hover{
+            transform:skewY(3deg) skewX(4deg) ;
+            text-shadow: .5rem 1rem 2rem rgba(black, .2);
+        }
+    }
+}
