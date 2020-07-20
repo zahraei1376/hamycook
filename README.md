@@ -14,3 +14,4 @@
 - [ ] add and modified restuarant
 - [ ] add and modified product
 - [ ] implement security with jwt
+- [X] configure swagger
