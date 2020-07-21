@@ -6,7 +6,9 @@
 - [ ] login
 - [ ] sms verification and activate account
 - [ ] recepie list
-- [ ] design entities
+- [X] design entities
+- [ ] validation entities
+- [ ] documantation entities
 - [ ] show list of products and resturants
 - [ ] show a product
 - [ ] cart
