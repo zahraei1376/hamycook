@@ -1,31 +1,32 @@
 package ir.hamycook.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cityId;
 
-    @NotBlank
+    //@NotBlank
+    @NonNull
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "state_id", nullable = false)
+    @NonNull
     private State state;
 
     @OneToMany(mappedBy = "city")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<FoodCenter> foodCenters;
 
-    public City(@NotBlank String name, State state) {
-        this.name = name;
-        this.state = state;
-    }
 }
