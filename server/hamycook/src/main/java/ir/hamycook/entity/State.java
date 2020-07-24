@@ -1,23 +1,30 @@
 package ir.hamycook.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class State {
     @Id
-    @NotBlank
+    //@NotBlank
+    @NonNull
+    @EqualsAndHashCode.Include
     private String name;
 
     @OneToMany(mappedBy = "state", cascade = CascadeType.ALL)
-    private List<City> cities;
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<City> cities = new ArrayList<>();
+
+
 }
