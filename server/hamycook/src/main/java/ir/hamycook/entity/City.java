@@ -3,15 +3,16 @@ package ir.hamycook.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class City {
 
     @Id
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cityId;
 
@@ -24,9 +25,5 @@ public class City {
     @NonNull
     private State state;
 
-    @OneToMany(mappedBy = "city")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private List<FoodCenter> foodCenters;
 
 }
