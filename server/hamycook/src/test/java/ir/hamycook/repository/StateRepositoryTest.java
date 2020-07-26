@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,7 +35,7 @@ public class StateRepositoryTest {
         State savedState = stateRepository.save(state);
 
         assertThat(savedState).hasFieldOrPropertyWithValue("name", STATE_NAME);
-        assertThat(savedState).hasFieldOrPropertyWithValue("cities", null);
+        assertEquals(savedState.getCities().size(), 0);
     }
 
     @Test
