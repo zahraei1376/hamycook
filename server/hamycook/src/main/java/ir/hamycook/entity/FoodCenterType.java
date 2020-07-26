@@ -1,22 +1,37 @@
 package ir.hamycook.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Setter
+@Getter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@RequiredArgsConstructor
 public class FoodCenterType {
+
     @Id
+    @EqualsAndHashCode.Include
     private String name;
 
-    @OneToMany(mappedBy = "foodCenterType")
-    private List<FoodCenter> foodCenters;
+    @ManyToMany(mappedBy = "foodCenterType")
+    private List<FoodCenter> foodCenters = new ArrayList<>();
 
     public FoodCenterType(String name) {
         this.name = name;
+    }
+
+    public void addFoodCenter(FoodCenter foodCenter) {
+        this.foodCenters.add(foodCenter);
+    }
+
+    public void removeFoodCenter(FoodCenter foodCenter) {
+        this.foodCenters.remove(foodCenter);
     }
 }
