@@ -35,21 +35,9 @@ public class StateRepositoryTest {
         State savedState = stateRepository.save(state);
 
         assertThat(savedState).hasFieldOrPropertyWithValue("name", STATE_NAME);
-        assertEquals(savedState.getCities().size(), 0);
     }
 
-    @Test
-    public void save_storeStateWithCities() {
-        State state = new State(STATE_NAME);
-        City city1 = new City(BABOL, state);
-        City city2 = new City(SARI, state);
-        state.getCities().add(city1);
-        state.getCities().add(city2);
-        State savedState = stateRepository.save(state);
 
-        assertThat(savedState).hasFieldOrPropertyWithValue("name", STATE_NAME);
-        assertThat(savedState.getCities()).hasSize(2);
-    }
 
     @Test
     public void findById_getStateWithName() {
@@ -71,24 +59,5 @@ public class StateRepositoryTest {
         assertEquals(stateRepository.findAll().size(), 0);
     }
 
-    @Test
-    public void delete_cascadeStateDelete() {
-        State state = new State(STATE_NAME);
-        City city1 = new City(BABOL, state);
-        City city2 = new City(SARI, state);
-        state.getCities().add(city1);
-        state.getCities().add(city2);
-
-        entityManager.persist(state);
-        assertNotNull(stateRepository.findAll());
-        assertEquals(stateRepository.findAll().size(), 1);
-        assertEquals(cityRepository.findAll().size(), 2);
-
-        stateRepository.deleteById(STATE_NAME);
-
-        assertEquals(stateRepository.findAll().size(), 0);
-
-        assertEquals(cityRepository.findAll().size(), 0);
-    }
 
 }
