@@ -59,15 +59,24 @@ public class FoodCenter {
     @ManyToMany
     @JoinColumn(name = "food_center_type_id")
     @NotEmpty
-    private List<FoodCenterType> foodCenterType = new ArrayList<>();
+    private List<FoodType> foodType = new ArrayList<>();
 
+    @OneToMany(mappedBy = "foodCenter", cascade = CascadeType.ALL)
+    private List<Food> food = new ArrayList<>();
 
-    public void addFoodCenterType(FoodCenterType foodCenterType) {
-        this.foodCenterType.add(foodCenterType);
+    public void addFoodType(FoodType foodType) {
+        this.foodType.add(foodType);
     }
 
-    public void removeFoodCenterType(FoodCenterType foodCenterType) {
-        this.foodCenterType.remove(foodCenterType);
+    public void removeFoodType(FoodType foodType) {
+        this.foodType.remove(foodType);
     }
 
+    public void addFood(Food food) {
+        this.food.add(food);
+    }
+
+    public void removeFood(Food food) {
+        this.food.remove(food);
+    }
 }

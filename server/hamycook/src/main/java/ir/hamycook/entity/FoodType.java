@@ -1,12 +1,16 @@
 package ir.hamycook.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-@Data
+@Setter
+@Getter
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class FoodType {
 
     @Id

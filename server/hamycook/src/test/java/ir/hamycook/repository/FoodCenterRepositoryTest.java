@@ -30,20 +30,20 @@ public class FoodCenterRepositoryTest {
         User user = new User("111111", "111111", "eh");
         State state = new State("stateName");
         City city = new City("city", state);
-        FoodCenterType foodCenterType = new FoodCenterType("فست فوت");
+        FoodType foodType = new FoodType("فست فوت");
 
         State persistedState = testEntityManager.persist(state);
         city.setState(persistedState);
         System.out.println(city.getCityId());
         User persistUser = testEntityManager.persist(user);
         City persistCity = testEntityManager.persist(city);
-        FoodCenterType persistedFoodCenterType = testEntityManager.persist(foodCenterType);
+        FoodType persistedFoodType = testEntityManager.persist(foodType);
 
         System.out.println(city.getCityId());
 
         FoodCenter foodCenter = new FoodCenter("اغذيه مسعود", "بابل خيابان شريعتي", "11111111111",
                 new Time(11, 0, 0), new Time(23, 0, 0), city, user);
-        foodCenter.addFoodCenterType(persistedFoodCenterType);
+        foodCenter.addFoodType(persistedFoodType);
         FoodCenter savedFoodCenter = foodCenterRepository.save(foodCenter);
         assertNotNull(savedFoodCenter);
         Optional<FoodCenter> optionalFoodCenter = foodCenterRepository.findById(savedFoodCenter.getId());
@@ -59,21 +59,21 @@ public class FoodCenterRepositoryTest {
         User user = new User("111111", "111111", "eh");
         State state = new State("stateName");
         City city = new City("city", state);
-        FoodCenterType foodCenterType1 = new FoodCenterType("فست فوت");
-        FoodCenterType foodCenterType2 = new FoodCenterType("رستوران");
+        FoodType foodType1 = new FoodType("فست فوت");
+        FoodType foodType2 = new FoodType("رستوران");
 
         State persistedState = testEntityManager.persist(state);
         city.setState(persistedState);
         User persistUser = testEntityManager.persist(user);
         City persistCity = testEntityManager.persist(city);
-        FoodCenterType persistedFoodCenterType1 = testEntityManager.persist(foodCenterType1);
-        FoodCenterType persistedFoodCenterType2 = testEntityManager.persist(foodCenterType2);
+        FoodType persistedFoodType1 = testEntityManager.persist(foodType1);
+        FoodType persistedFoodType2 = testEntityManager.persist(foodType2);
         FoodCenter foodCenter1 = new FoodCenter("اغذيه مسعود", "بابل خيابان شريعتي", "11111111111",
                 new Time(11, 0, 0), new Time(23, 0, 0), persistCity, persistUser);
-        foodCenter1.addFoodCenterType(persistedFoodCenterType1);
+        foodCenter1.addFoodType(persistedFoodType1);
         FoodCenter foodCenter2 = new FoodCenter("اغذيه مسعود", "ميدان حمزه كلاه", "11251111111",
                 new Time(11, 0, 0), new Time(23, 0, 0), persistCity, persistUser);
-        foodCenter2.addFoodCenterType(persistedFoodCenterType2);
+        foodCenter2.addFoodType(persistedFoodType2);
 
         FoodCenter persistedFoodCenter1 = testEntityManager.persist(foodCenter1);
         FoodCenter persistedFoodCenter2 = testEntityManager.persist(foodCenter2);
@@ -90,29 +90,29 @@ public class FoodCenterRepositoryTest {
         User user = new User("111111", "111111", "eh");
         State state = new State("stateName");
         City city = new City("city", state);
-        FoodCenterType foodCenterType1 = new FoodCenterType("فست فوت");
-        FoodCenterType foodCenterType2 = new FoodCenterType("رستوران");
+        FoodType foodType1 = new FoodType("فست فوت");
+        FoodType foodType2 = new FoodType("رستوران");
 
         State persistedState = testEntityManager.persist(state);
         city.setState(persistedState);
         User persistUser = testEntityManager.persist(user);
         City persistCity = testEntityManager.persist(city);
-        testEntityManager.persist(foodCenterType1);
-        testEntityManager.persist(foodCenterType2);
+        testEntityManager.persist(foodType1);
+        testEntityManager.persist(foodType2);
         FoodCenter foodCenter = new FoodCenter("اغذيه مسعود", "بابل خيابان شريعتي", "11111111111",
                 new Time(11, 0, 0), new Time(23, 0, 0), persistCity, persistUser);
 
-        foodCenter.addFoodCenterType(foodCenterType1);
-        foodCenter.addFoodCenterType(foodCenterType2);
+        foodCenter.addFoodType(foodType1);
+        foodCenter.addFoodType(foodType2);
 
         foodCenterRepository.save(foodCenter);
 
-        assertEquals(foodCenterRepository.findByName("اغذيه مسعود").get(0).getFoodCenterType().size(),
+        assertEquals(foodCenterRepository.findByName("اغذيه مسعود").get(0).getFoodType().size(),
                 2);
 
-        foodCenter.removeFoodCenterType(foodCenterType1);
+        foodCenter.removeFoodType(foodType1);
 
-        assertEquals(foodCenterRepository.findByName("اغذيه مسعود").get(0).getFoodCenterType().size(),
+        assertEquals(foodCenterRepository.findByName("اغذيه مسعود").get(0).getFoodType().size(),
                 1);
     }
 }

@@ -8,33 +8,31 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.sql.Time;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class FoodCenterTypeRepositoryTest {
+public class FoodTypeRepositoryTest {
 
     @Autowired
     private TestEntityManager testEntityManager;
 
     @Autowired
-    private FoodCenterTypeRepository foodCenterTypeRepository;
+    private FoodTypeRepository foodTypeRepository;
 
-    public static final String FOOD_CENTER_TYPE_NAME = "فست فوت";
+    public static final String FOOD_TYPE_NAME = "فست فوت";
 
     @Test
     public void save_storeAFoodCenterType() {
-        FoodCenterType foodCenterType = new FoodCenterType(FOOD_CENTER_TYPE_NAME);
+        FoodType foodType = new FoodType(FOOD_TYPE_NAME);
 
-        assertEquals(foodCenterTypeRepository.findAll().size(), 0);
+        assertEquals(foodTypeRepository.findAll().size(), 0);
 
-        FoodCenterType savedFoodCenterType = foodCenterTypeRepository.save(foodCenterType);
+        FoodType savedFoodType = foodTypeRepository.save(foodType);
 
-        assertEquals(foodCenterTypeRepository.findAll().size(), 1);
-        assertThat(savedFoodCenterType).hasFieldOrPropertyWithValue("name", FOOD_CENTER_TYPE_NAME);
+        assertEquals(foodTypeRepository.findAll().size(), 1);
+        assertThat(savedFoodType).hasFieldOrPropertyWithValue("name", FOOD_TYPE_NAME);
     }
 
 }
