@@ -21,8 +21,7 @@ public class Cart {
     @NonNull
     private User user;
 
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "food_id", nullable = false)
     @NotNull
     @NonNull
@@ -33,4 +32,6 @@ public class Cart {
     @NonNull
     private Long count;
 
+    @NonNull
+    private double basePrice;
 }
