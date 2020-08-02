@@ -5,10 +5,7 @@ import ir.hamycook.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -23,6 +20,12 @@ public class UserController {
     public ResponseEntity<?> registerUser(@RequestBody @Valid UserRegisterIn userRegisterIn) {
         userService.registerUser(userRegisterIn);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("{userId}/mobile")
+    @ResponseStatus(HttpStatus.OK)
+    public void activateAccountByMobile(@PathVariable("userId") String mobile) {
+        userService.generateOtpCodeAndSend(mobile);
     }
 
 }
