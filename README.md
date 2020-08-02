@@ -2,7 +2,7 @@
 
 ## server side:
 
-- [ ] register
+- [X] register user
 - [ ] login
 - [ ] sms verification and activate account
 - [ ] recepie list
