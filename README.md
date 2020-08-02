@@ -4,7 +4,7 @@
 
 - [X] register user
 - [ ] login
-- [ ] sms verification and activate account
+- [X] sms verification and activate account
 - [ ] recepie list
 - [X] design entities
 - [X] repositories
