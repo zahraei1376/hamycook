@@ -1,7 +1,7 @@
 package ir.hamycook.service;
 
 import ir.hamycook.config.PasswordEncoderConfig;
-import ir.hamycook.dao.UserRegisterIn;
+import ir.hamycook.model.UserRegisterIn;
 import ir.hamycook.entity.User;
 import ir.hamycook.exception.UsernameAlreadyExistException;
 import ir.hamycook.repository.UserRepository;

@@ -1,6 +1,6 @@
 package ir.hamycook.web;
 
-import ir.hamycook.dao.UserRegisterIn;
+import ir.hamycook.model.UserRegisterIn;
 import ir.hamycook.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
