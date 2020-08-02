@@ -1,4 +1,4 @@
-package ir.hamycook.dao;
+package ir.hamycook.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
